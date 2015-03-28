@@ -1,4 +1,5 @@
 .DS_Store
 test.c
-.exec
+test
+result
 data.txt

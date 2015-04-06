@@ -17,6 +17,18 @@
  * Then change the item place to a new place after store the value of the that new postion's value. 
  * When all the numbers are replaced then return. 
 
+ * Another Easy Way: 
+ * We should firstly check if the K is larger than n, and then make sure the k = k%n
+ * and we need to get the common divisor of the two numbers. It means that how many self circle they have 
+ * Then change the item place to a new place after store the value of the that new postion's value. 
+ * When all the numbers are replaced then return. 
+
+ * The most Easy Way: 
+ * The most important thing is to consider the boundary!!!! k==0? k>n ?
+ * the most easy way is to reverse the [0,n-k-1], [n-k,n-1], and finally, reverse [0,n-1] 
+
+
+
  * What to learn: 
  * When mention rotation, remember the cycle. So firstly make sure the length of rotation step is smaller than the 
  * length of array. Then to check some extreme case.  
@@ -105,6 +117,7 @@ public:
 // and we need to get the common divisor of the two numbers. It means that how many self circle they have 
 // Then change the item place to a new place after store the value of the that new postion's value. 
 // When all the numbers are replaced then return. 
+/*
 class Solution {
 public:
     void rotate(int nums[], int n, int k) {
@@ -141,14 +154,38 @@ public:
         }
     }
 };
+*/
+
+class Solution {
+public:
+    void rotate(int nums[], int n, int k) {
+        k = k%n; 
+        if(k==0)
+            return; 
+        reverse(nums,0,n-k-1);
+        reverse(nums,n-k,n-1);
+        reverse(nums,0,n-1);
+
+    }
+    void reverse(int nums[],int left, int right)
+    {
+        int n = right - left + 1;
+        for(int i=0;i<n/2;i++){
+            int temp = nums[left+i];
+            nums[left+i] = nums[right-i];
+            nums[right-i] = temp;
+        }
+
+    }
+};
 
 
 int main()
 {
 	Solution ans;
-    int nums[] = {1};
-    ans.rotate(nums,1,1);
-    for(int i=0;i<1;i++)
+    int nums[] = {1,2,3,4,5,6,7};
+    ans.rotate(nums,7,3);
+    for(int i=0;i<7;i++)
         cout<<nums[i]<<" ";
 	
 	return 0;

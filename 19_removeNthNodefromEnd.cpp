@@ -82,7 +82,7 @@ public:
     }
 };
 */
-
+//second solution
 class Solution {
 public:
     ListNode *removeNthFromEnd(ListNode *head, int n) {
@@ -109,6 +109,41 @@ public:
     }
 };
 
+// the third solution
+class RemoveNthNodeFromEndofList {
+public: ListNode *removeNthFromEnd(ListNode *head, int n) {
+        if( head == NULL ) {
+            if( n == 0 )
+                return head;
+        }
+        if( head->next == NULL ) {
+            if( n == 1 )
+                head = NULL;
+            return head;
+        }       
+        ListNode* EndPointer = head;
+        ListNode* Pre = new ListNode(-1); 
+        Pre->next = head;
+        ListNode* Cur = head;
+        int DistanceToEnd = 0;
+        while( EndPointer != NULL ) {
+            //cout<<"DistanceToEnd: "<<DistanceToEnd<<" EndPointer->val: "<<EndPointer->val<<endl;
+            if( DistanceToEnd == n ) {
+                Pre = Cur;
+                Cur = Cur->next;
+            }
+            else 
+                DistanceToEnd++;
+            EndPointer = EndPointer->next;           
+        }
+        if( Cur == head ) 
+            head = Cur->next;
+        else
+            Pre->next = Cur->next;
+        return head;
+    }
+};
+
 ListNode* create_list(int* array,int n)
 {
     if (n==0)
@@ -128,12 +163,12 @@ ListNode* create_list(int* array,int n)
 int main()
 {
     //vector <int> a = {1,3,5};
-	Solution ans;
+	RemoveNthNodeFromEndofList ans;
     //int a[3] = {1,3,5};
-    int b[1] = {1};
-    ListNode * first = create_list(b,1);
+    int b[8] = {1,2,3,4,5,6,7,8};
+    ListNode * first = create_list(b,8);
     //ListNode * second = create_list(a,3);
-    ListNode * pure = ans.removeNthFromEnd(first,1);
+    ListNode * pure = ans.removeNthFromEnd(first,2);
     if(pure == NULL)
         printf("NULL");
     else

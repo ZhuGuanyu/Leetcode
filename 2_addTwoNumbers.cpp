@@ -15,7 +15,14 @@
  * Output: 7 -> 0 -> 8
 
  * Solution: 
- * 
+ * 1. Using three steps. 
+ * 1> check l1 and l2 both are not NULL. 
+ * 2> make the remaining part to concat the L1 list. 
+ * 3> check if the Carry is 0 or not. 
+
+ * 2. A simple solution is: 
+ * check the l1, l2, carry at the same time. 
+ * Every time , add a new node to the new list. 
 
  * What to learn: 
  * 

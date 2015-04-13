@@ -20,7 +20,6 @@
  * Because this is the Link, so we can connect the tail to the head. So we can directly focus on which is the 
  * result head for the new link, then we split it from the beginning. 
 
-
  * What to learn: 
  * For the link, we should consider the circle that we can use for our purpuse. 
 

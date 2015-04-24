@@ -1,11 +1,12 @@
 /**
  * ID: 112_pathSum
  * Name: Path Sum
- * Data Structure: Linked List
- * Time Complexity:  
+ * Data Structure: Stack
+ * Time Complexity: O(v+e)
  * Space Complexity:  
- * Tag: LinkList
+ * Tag: Tree
  * Difficult: Easy
+ * Algorithm: recursive/DFS
  
  * Problem: 
  * Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that 
